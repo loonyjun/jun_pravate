@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility Location without Capacity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .scatter-plot {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Facility Location without Capacity</h1>
+    <div id="scatter-plot" class="scatter-plot"></div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        var BBQ_num = 100;
+        var MJ_num = 2;
+        var BBQ_locations = [];
+        for (var i = 0; i < BBQ_num; i++) {
+            BBQ_locations.push([Math.random(), Math.random()]);
+        }
+
+        var trace = {
+            x: BBQ_locations.map(function(coord) { return coord[0]; }),
+            y: BBQ_locations.map(function(coord) { return coord[1]; }),
+            mode: 'markers',
+            type: 'scatter'
+        };
+
+        var data = [trace];
+        var layout = {
+            title: 'Facility Location without Capacity',
+            xaxis: { title: 'X Coordinate' },
+            yaxis: { title: 'Y Coordinate' }
+        };
+
+        Plotly.newPlot('scatter-plot', data, layout);
+
+        // Call facility_location_without_capacity function here if needed
+    </script>
+</body>
+</html>
